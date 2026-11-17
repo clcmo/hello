@@ -1,0 +1,46 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate application
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate JavaScript
+        run: npm test
+
+      - name: Start server
+        run: npm start > server.log 2>&1 &
+
+      - name: Smoke test routes
+        run: |
+          for route in / /en /regras /rules; do
+            status=$(curl --retry 10 --retry-delay 1 --retry-connrefused --silent --output /dev/null --write-out "%{http_code}" "http://localhost:8080$route")
+            echo "$route -> HTTP $status"
+            test "$status" = "200"
+          done

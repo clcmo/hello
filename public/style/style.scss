@@ -1,11 +1,11 @@
 @import "https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.3/css/bulma.min.css";
-@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css";
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css";
 @import "https://fonts.googleapis.com/css?family=Montserrat:400,400i,700";
 body {
 	font-size: 16px;
-	color: #404040;
+	color: #1d1b19;
 	font-family: Montserrat, sans-serif;
-	background-image: linear-gradient(to bottom right, #ff9eaa 0% 65%, #e860ff 95% 100%);
+	background: #f1e7db;
 	background-position: center;
 	background-attachment: fixed;
 	margin: 0;
@@ -15,16 +15,16 @@ body {
 	box-sizing: border-box;
 	margin: 0;
 	font: normal 11.4285714286px "Montserrat", sans-serif;
-	color: #353535;
+	color: #1d1b19;
 	-webkit-font-smoothing: antialiased;
 }
 .hero-body {
 	width: 85%;
 	margin: 100px auto 0;
 	padding: 16px;
-	background-color: #fff 40;
-	border-radius: 2rem;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.125);
+	background-color: #f1e7db;
+	border-radius: 0.25rem;
+	box-shadow: none;
 	p {
 		&:first-child {
 			margin-top: 0;
@@ -56,8 +56,9 @@ body {
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
-	border-radius: 2rem;
-	box-shadow: 0px 1rem 1.5rem rgba(0, 0, 0, 0.5);
+	border-radius: 0.25rem;
+	border: 1px solid #e9e4dd;
+	box-shadow: 0 0.75rem 2rem rgba(29, 27, 25, 0.12);
 	.banner {
 		background-image: url("../images/banner.png");
 		background-position: center;
@@ -132,7 +133,7 @@ body {
 			font-size: 1.9em;
 		}
 		.title {
-			color: #a0a0a0;
+			color: #5b5348;
 			font-size: 1rem;
 			text-align: center;
 			margin: 0.7rem;
@@ -156,10 +157,11 @@ body {
 		}
 		.follow-info {
 			padding: 0.5rem 0 0.5rem 0;
-			display: flex;
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
 			h2 {
 				text-align: center;
-				width: 50%;
+				width: 100%;
 				margin: 0;
 				box-sizing: border-box;
 				a {
@@ -170,21 +172,21 @@ body {
 					border-radius: 0.8rem;
 					transition: background-color 100ms ease-in-out;
 					span {
-						color: #1c9eff;
+						color: #1d1b19;
 						font-weight: bold;
 						transform-origin: bottom;
 						transform: scaleY(1.3);
 						transition: color 100ms ease-in-out;
 					}
 					small {
-						color: #afafaf;
+						color: #5b5348;
 						font-size: 0.85rem;
 						font-weight: normal;
 					}
 					&:hover {
-						background-color: #f2f2f2;
+						background-color: #f1e7db;
 						span {
-							color: #007ad6;
+							color: #000;
 						}
 					}
 				}
@@ -192,10 +194,10 @@ body {
 		}
 		.follow-btn {
 			button {
-				color: inherit;
+				color: #fff;
 				font: inherit;
 				font-weight: bold;
-				background-color: #ffd01a;
+				background-color: #1d1b19;
 				border: none;
 				padding: 1rem;
 				outline: none;
@@ -205,13 +207,18 @@ body {
 				width: 95%;
 				margin: 10px;
 				&:hover {
-					background-color: #efb10a;
+					background-color: #5b5348;
 					transform: scale(1.1);
 				}
 				&:active {
-					background-color: #e8a200;
+					background-color: #000;
 					transform: scale(1);
 				}
+			}
+		}
+		@media screen and (max-width: 480px) {
+			.follow-info {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
 			}
 		}
 	}
