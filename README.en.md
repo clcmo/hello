@@ -1,6 +1,6 @@
 # Hello
 
-Personal website and link hub for Camila L. Oliveira.
+Personal link hub.
 
 [![GitHub](https://img.shields.io/badge/GitHub-clcmo-181717?style=for-the-badge&logo=github)](https://github.com/clcmo)
 [![Instagram](https://img.shields.io/badge/Instagram-millaloliveira-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/millaloliveira)

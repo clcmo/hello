@@ -1,6 +1,6 @@
 # Hello
 
-Página pessoal e central de links de Camila L. Oliveira.
+Página de central de links.
 
 [![GitHub](https://img.shields.io/badge/GitHub-clcmo-181717?style=for-the-badge&logo=github)](https://github.com/clcmo)
 [![Instagram](https://img.shields.io/badge/Instagram-millaloliveira-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/millaloliveira)
