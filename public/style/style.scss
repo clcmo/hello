@@ -156,10 +156,11 @@ body {
 		}
 		.follow-info {
 			padding: 0.5rem 0 0.5rem 0;
-			display: flex;
+			display: grid;
+			grid-template-columns: repeat(3, minmax(0, 1fr));
 			h2 {
 				text-align: center;
-				width: 50%;
+				width: 100%;
 				margin: 0;
 				box-sizing: border-box;
 				a {
@@ -212,6 +213,11 @@ body {
 					background-color: #e8a200;
 					transform: scale(1);
 				}
+			}
+		}
+		@media screen and (max-width: 480px) {
+			.follow-info {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
 			}
 		}
 	}

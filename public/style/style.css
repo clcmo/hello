@@ -157,13 +157,26 @@ body {
 }
  .card .actions .follow-info {
 	 padding: 0.5rem 0 0.5rem 0;
-	 display: flex;
+	 display: grid;
+	 grid-template-columns: repeat(3, minmax(0, 1fr));
 }
  .card .actions .follow-info h2 {
 	 text-align: center;
-	 width: 50%;
+	 width: 100%;
 	 margin: 0;
 	 box-sizing: border-box;
+}
+@media screen and (max-width: 480px) {
+	 .card .actions .follow-info {
+		 grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+	 .hero-body {
+		 width: 94%;
+		 margin-top: 2rem;
+	}
+	 .card .info .desc {
+		 padding: 1rem;
+	}
 }
  .card .actions .follow-info h2 a {
 	 text-decoration: none;

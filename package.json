@@ -1,14 +1,21 @@
 {
-  "name": "Pug-MD-Template",
+  "name": "hello-clcmo",
   "version": "1.0.0",
-  "description": "",
+  "description": "Página pessoal e central de links de Camila L. Oliveira",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "node index.js",
+    "test": "node --check index.js",
+    "build:pages": "node scripts/build-pages.cjs"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["pug", "express", "social-links", "link-in-bio"],
+  "author": "Camila L. Oliveira",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/clcmo/hello.git"
+  },
   "dependencies": {
     "express": "^4.17.1",
     "jstransformer-markdown-it": "^2.1.0",

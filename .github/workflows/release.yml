@@ -1,0 +1,57 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Build and publish release
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate
+        run: npm test
+
+      - name: Build release
+        run: npm run build:pages
+
+      - name: Package static site
+        run: cd _site && zip -r ../hello-pages.zip .
+
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if [[ "${GITHUB_REF_TYPE}" == "tag" ]]; then
+            gh release create "${GITHUB_REF_NAME}" \
+              hello-pages.zip \
+              --title "${GITHUB_REF_NAME}" \
+              --generate-notes
+          else
+            gh release create "manual-${GITHUB_SHA}" \
+              hello-pages.zip \
+              --title "Manual build ${GITHUB_SHA}" \
+              --generate-notes
+          fi
