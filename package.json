@@ -1,6 +1,6 @@
 {
   "name": "hello-clcmo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Página pessoal e central de links de Camila L. Oliveira",
   "main": "index.js",
   "scripts": {

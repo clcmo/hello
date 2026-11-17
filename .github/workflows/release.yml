@@ -50,8 +50,9 @@ jobs:
               --title "${GITHUB_REF_NAME}" \
               --generate-notes
           else
-            gh release create "manual-${GITHUB_SHA}" \
+            VERSION=$(node -p "require('./package.json').version")
+            gh release create "v${VERSION}" \
               hello-pages.zip \
-              --title "Manual build ${GITHUB_SHA}" \
+              --title "v${VERSION}" \
               --generate-notes
           fi
